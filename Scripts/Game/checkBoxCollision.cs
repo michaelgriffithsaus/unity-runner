@@ -19,7 +19,9 @@ public class checkBoxCollision : MonoBehaviour {
 		WheelHit hit;
 
 		if (wheel.GetGroundHit(out hit)) {
-			hit.collider.gameObject.GetComponent<boxSpawner>().spawnBox();
+			if (hit.collider.gameObject.name.StartsWith ("Cube")) {
+				hit.collider.gameObject.GetComponent<boxSpawner> ().spawnBox ();
+			}
 	}
 }
 }

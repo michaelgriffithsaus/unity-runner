@@ -16,12 +16,17 @@ public class boxSpawner : MonoBehaviour {
 	public float aliveTime;
 	float timeSpawned;
 
+	//get transform
+	Transform boxTransform;
+
+	public CameraFollow CameraFollow;
 
 	// Use this for initialization
 	void Start () {
 		//Debug.Log (transform.position);
 		timeSpawned = Time.time;
-	
+		boxTransform = GetComponent<Transform> ();
+
 	}
 	
 	// Update is called once per frame
@@ -47,8 +52,7 @@ public class boxSpawner : MonoBehaviour {
 			boxSpawned = true;
 			Debug.Log ("Updating Score " + pointValue);
 			scoreController.addToScore (1);
-
+			CameraFollow.changeTarget (boxTransform);
 		}
-	}
-		
+	}		
 }

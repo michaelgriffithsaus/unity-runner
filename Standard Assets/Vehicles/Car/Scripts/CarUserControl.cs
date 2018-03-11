@@ -9,6 +9,7 @@ namespace UnityStandardAssets.Vehicles.Car
 	{
 		private CarController m_Car; // the car controller we want to use
 		public controllerManager controllerManager;
+		public int playerNumber;
 
 
 
@@ -22,16 +23,10 @@ namespace UnityStandardAssets.Vehicles.Car
 		private void FixedUpdate()
 		{
 
-			//If the keyboard is being used keep vertical axis as W and UP
-			float v = CrossPlatformInputManager.GetAxis ("Vertical");
 
-			//If a controller is being used change verticle acces to A or X
-			if (controllerManager.PS4_Controller == 1 || controllerManager.Xbox_One_Controller == 1) {
-				v = CrossPlatformInputManager.GetAxis ("Fire1");
-			}
-
+			float v = CrossPlatformInputManager.GetAxis ("accelerate");
 			float h = CrossPlatformInputManager.GetAxis("Horizontal");
-			float handbrake = CrossPlatformInputManager.GetAxis("Jump");
+			float handbrake = CrossPlatformInputManager.GetAxis("Handbrake");
 			m_Car.Move(h, v, v, handbrake);
 
 		}

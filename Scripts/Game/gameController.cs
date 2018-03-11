@@ -14,20 +14,13 @@ public class gameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		//If the keyboard is being used we check for backspace
-
-		//If a controller is being used we use the back or select button
-		if (controllerManager.PS4_Controller == 1 || controllerManager.Xbox_One_Controller == 1) {
-
-			if (Input.GetKeyDown(KeyCode.Joystick1Button6)) {
-				resetScene();
-			}
-		}
-		else if (Input.GetKeyDown(KeyCode.Backspace)){
+	    //Detect if the controller wants to reset the scene by checking for the reset button input
+		if (Input.GetAxis ("reset") > 0) {
 			resetScene ();
 		}
+	}
 
-		}
+
 
 	private void resetScene(){
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
