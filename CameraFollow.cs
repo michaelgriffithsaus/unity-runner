@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
-
+	//Accepts a tranform as the target and will use lerb to smooth follow the target
 	public Transform target;
 	Transform cameraTranform;
 

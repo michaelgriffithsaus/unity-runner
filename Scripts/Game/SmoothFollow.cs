@@ -17,7 +17,6 @@ public class SmoothFollow : MonoBehaviour
     public float heightDamping = 2.0f;
     public float rotationDamping = 3.0f;
 
-	bool stateReached;
 
     // Place the script in the Camera-Control group in the component menu
     [AddComponentMenu("Camera-Control/Smooth Follow")]
@@ -56,7 +55,7 @@ public class SmoothFollow : MonoBehaviour
     }
 
 	public void changeTarget(Transform newTarget) {
-		return;
+		this.target = newTarget;
 
 			}
 		} 

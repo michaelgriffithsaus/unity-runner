@@ -4,9 +4,12 @@ using System.Collections;
 public class checkBoxCollision : MonoBehaviour {
 
 	WheelCollider wheel;
+	Transform playerTransform;
+
 	// Use this for initialization
 	void Start () {
 		wheel = GetComponent<WheelCollider>();
+		playerTransform = GetComponent<Transform> ();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +23,7 @@ public class checkBoxCollision : MonoBehaviour {
 
 		if (wheel.GetGroundHit(out hit)) {
 			if (hit.collider.gameObject.name.StartsWith ("Cube")) {
-				hit.collider.gameObject.GetComponent<boxSpawner> ().spawnBox ();
+				hit.collider.gameObject.GetComponent<boxSpawner> ().spawnBox (playerTransform, GetInstanceID());
 			}
 	}
 }
